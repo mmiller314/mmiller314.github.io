@@ -83,6 +83,10 @@ p.lead {
   color: #01579B;
 }
 
+.easter-egg {
+  display: none !important;
+}
+
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;

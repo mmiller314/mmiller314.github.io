@@ -57,6 +57,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
           </li>
+          <li class="nav-item easter-egg">
+            <a class="nav-link js-scroll-trigger" href="#experiments">Experiments</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -182,7 +185,7 @@
             <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Gulp">
               <i class="fab fa-gulp"></i>
             </li>
-            <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Grunt">
+            <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Grunt" id="grunt">
               <i class="fab fa-grunt"></i>
             </li>
             <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="npm">
@@ -219,29 +222,66 @@
               <i class="fab fa-stack-overflow"></i>
             </li>
           </ul>
-
         </div>
       </section>
     </div>
-    
-      <hr class="m-0">
 
-      <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        <div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          
-          <div class="resume-item d-flex flex-column flex-md-row mb-5">
-            <div class="resume-content mr-auto">
-              <h3 class="mb-0">Data Science</h3>
-              <div class="subheading mb-3">Mathematics</div>
-              <div>Machine Learning</div>
-              <div>Pandas</div>
-              <div>NumPy</div>
-            </div>
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
+      <div class="my-auto">
+        <h2 class="mb-5">Interests</h2>
+        
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <h3 class="mb-0">Data Science</h3>
+            <div class="subheading mb-3">Mathematics</div>
+            <div>Machine Learning</div>
+            <div>Pandas</div>
+            <div>NumPy</div>
           </div>
-
         </div>
-      </section>
+
+      </div>
+    </section>
+
+    <hr class="m-0 easter-egg">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column easter-egg" id="experiments">
+      <div class="my-auto">
+        <h2 class="mb-5">Experiments</h2>
+        
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+          <div class="resume-content mr-auto">
+            <h3 class="mb-0">JavaScript</h3>
+            <div class="subheading mb-3">Mathematics</div>
+            <div><a id="circleSceneBtn" href="javascript:void(0)">Physics</a></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    
+    <div class="modal" tabindex="-1" role="dialog" id="circleSceneModal">
+      <div class="modal-dialog modal-lg" role="document" id="dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Physics</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <canvas id="scene" width="640" height="480"></canvas>
+          </div>
+          <div class="modal-footer">
+            <button id="addBtn" type="button" class="btn btn-primary">Add Circle</button>
+            <button id="collisionBtn" type="button" class="btn btn-success">Collision is on</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
