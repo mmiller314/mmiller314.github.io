@@ -247,6 +247,7 @@ CircleScene.prototype.render = function render() {
     });
     var offset = $('#dialog').offset();
     var width = $('#dialog').width();
+    console.log('width', width);
     scene = new CircleScene(0.44, 2, offset, width - 10);
     scene.initEvents();
     interval = setInterval(function () {
