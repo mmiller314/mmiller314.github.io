@@ -7,6 +7,9 @@ var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
+var browserify = require('browserify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -49,6 +52,18 @@ gulp.task('vendor', function() {
 
 });
 
+// Compile ES6 to es2015 and react
+gulp.task('compile:js', function () {
+  var bundler = browserify('app/index.js');
+  
+  return bundler
+    .transform('babelify', { presets: ['@babel/preset-env', '@babel/preset-react'] })
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(buffer())
+    .pipe(gulp.dest('./build'));
+});
+
 // Compile SCSS
 gulp.task('css:compile', function() {
   return gulp.src('./scss/**/*.scss')
@@ -86,7 +101,9 @@ gulp.task('css', ['css:compile', 'css:minify']);
 gulp.task('js:minify', function() {
   return gulp.src([
       './js/*.js',
-      '!./js/*.min.js'
+      '!./js/*.min.js',
+      './build/*.js',
+      '!./build/*.min.js'
     ])
     .pipe(uglify())
     .pipe(rename({
@@ -100,7 +117,7 @@ gulp.task('js:minify', function() {
 });
 
 // JS
-gulp.task('js', ['js:minify']);
+gulp.task('js', ['compile:js', 'js:minify']);
 
 // Default task
 gulp.task('default', ['css', 'js', 'vendor']);
