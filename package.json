@@ -27,6 +27,7 @@
         "url": "https://github.com/mmiller314/mmiller314.github.io.git"
     },
     "dependencies": {
+        "@babel/polyfill": "^7.0.0",
         "@fortawesome/fontawesome-free": "5.5.0",
         "axios": "0.18.0",
         "bootstrap": "4.1.3",
