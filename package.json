@@ -11,10 +11,10 @@
         "theme",
         "template"
     ],
-    "homepage": "https://startbootstrap.com/template-overviews/resume",
+    "homepage": "https://mmiller314.github.io/",
     "bugs": {
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume/issues",
-        "email": "feedback@startbootstrap.com"
+        "url": "https://github.com/mmiller314/mmiller314.github.io/issues",
+        "email": "mmiller314@gmail.com"
     },
     "license": "MIT",
     "author": "Start Bootstrap",
@@ -24,7 +24,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/BlackrockDigital/startbootstrap-resume.git"
+        "url": "https://github.com/mmiller314/mmiller314.github.io.git"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "5.5.0",

@@ -13,9 +13,9 @@ var buffer = require('vinyl-buffer');
 
 // Set the banner content
 var banner = ['/*!\n',
-  ' * Start Bootstrap - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * Resume - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
   ' * Copyright 2013-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
-  ' * Licensed under <%= pkg.license %> (https://github.com/BlackrockDigital/<%= pkg.name %>/blob/master/LICENSE)\n',
+  ' * Licensed under <%= pkg.license %> (https://github.com/mmiller314/mmiller314.github.io/blob/master/LICENSE)\n',
   ' */\n',
   '\n'
 ].join('');
