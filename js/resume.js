@@ -197,6 +197,7 @@ CircleScene.prototype.render = function render() {
       this.ctx.beginPath();
       this.ctx.moveTo(this.circles[index].x, this.circles[index].y);
       this.ctx.lineTo(this.mouse.x, this.mouse.y);
+      this.ctx.strokeStyle = '#616161';
       this.ctx.stroke();
       this.ctx.closePath();
     } else {
