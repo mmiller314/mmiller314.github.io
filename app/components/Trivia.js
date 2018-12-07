@@ -72,9 +72,6 @@ function Results(props) {
   )
 }
 
-// The Player looks up the player using the number parsed from
-// the URL's pathname. If no player is found with the given
-// number, then a "player not found" message is displayed.
 class Trivia extends React.Component {
   constructor(props) {
     super(props);

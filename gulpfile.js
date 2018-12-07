@@ -54,8 +54,12 @@ gulp.task('vendor', function() {
 
 // Compile ES6 to es2015 and react
 gulp.task('compile:js', function () {
-  var bundler = browserify('app/index.js');
-  
+  var reactSrcFiles = [
+    'app/index.js',
+    'app/population.js'
+  ];
+  var bundler = browserify(reactSrcFiles);
+
   return bundler
     .transform('babelify', { presets: ['@babel/preset-env', '@babel/preset-react'] })
     .bundle()
