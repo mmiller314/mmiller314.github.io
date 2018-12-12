@@ -55,8 +55,7 @@ gulp.task('vendor', function() {
 // Compile ES6 to es2015 and react
 gulp.task('compile:js', function () {
   var reactSrcFiles = [
-    'app/index.js',
-    'app/population.js'
+    'app/index.js'
   ];
   var bundler = browserify(reactSrcFiles);
 
