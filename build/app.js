@@ -4,15 +4,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports["default"] = void 0;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _axios = _interopRequireDefault(require("axios"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -20,21 +20,29 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
-function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
@@ -53,17 +61,17 @@ function shuffle(_ref) {
 }
 
 function Status(props) {
-  return _react.default.createElement("div", null, _react.default.createElement("p", {
+  return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
-  }, "Correct: ", props.correct), _react.default.createElement("p", {
+  }, "Correct: ", props.correct), /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
-  }, "Incorrect: ", props.incorrect), _react.default.createElement("p", {
+  }, "Incorrect: ", props.incorrect), /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
   }, "(", props.index + 1, " of ", props.questions.length, ")"));
 }
 
 function DisplayQuestion(props) {
-  return _react.default.createElement("p", {
+  return /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead",
     dangerouslySetInnerHTML: {
       __html: props.q.question
@@ -75,7 +83,7 @@ function DisplayAnswers(props) {
   var choices = [];
 
   for (var i = 0; i < props.answers.incorrect_answers.length; i++) {
-    choices.push(_react.default.createElement("button", {
+    choices.push( /*#__PURE__*/_react["default"].createElement("button", {
       key: i,
       onClick: function onClick() {
         return props.handleClick(props.index, props.answers.incorrect_answers);
@@ -87,7 +95,7 @@ function DisplayAnswers(props) {
     }));
   }
 
-  choices.push(_react.default.createElement("button", {
+  choices.push( /*#__PURE__*/_react["default"].createElement("button", {
     key: "3",
     onClick: function onClick() {
       return props.handleClick(props.index, props.answers.correct_answer);
@@ -98,18 +106,18 @@ function DisplayAnswers(props) {
     }
   }));
   choices = shuffle(choices);
-  return _react.default.createElement("div", null, choices);
+  return /*#__PURE__*/_react["default"].createElement("div", null, choices);
 }
 
 function Question(props) {
   var q = props.questions[props.index];
-  return _react.default.createElement("div", null, _react.default.createElement(DisplayQuestion, {
+  return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement(DisplayQuestion, {
     q: q
-  }), _react.default.createElement(DisplayAnswers, {
+  }), /*#__PURE__*/_react["default"].createElement(DisplayAnswers, {
     answers: q,
     index: props.index,
     handleClick: props.handleClick
-  }), _react.default.createElement(Status, {
+  }), /*#__PURE__*/_react["default"].createElement(Status, {
     index: props.index,
     questions: props.questions,
     correct: props.correct,
@@ -128,13 +136,13 @@ function Results(props) {
     message = 'Woah';
   }
 
-  return _react.default.createElement("div", null, _react.default.createElement("p", {
+  return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
-  }, "Correct: ", props.correct), _react.default.createElement("p", {
+  }, "Correct: ", props.correct), /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
-  }, "Incorrect: ", props.incorrect), _react.default.createElement("p", {
+  }, "Incorrect: ", props.incorrect), /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
-  }, message), _react.default.createElement("hr", null), _react.default.createElement("button", {
+  }, message), /*#__PURE__*/_react["default"].createElement("hr", null), /*#__PURE__*/_react["default"].createElement("button", {
     onClick: function onClick() {
       return props.reset();
     },
@@ -142,25 +150,25 @@ function Results(props) {
   }, "Try Again?"));
 }
 
-var Trivia =
-/*#__PURE__*/
-function (_React$Component) {
+var Trivia = /*#__PURE__*/function (_React$Component) {
   _inherits(Trivia, _React$Component);
+
+  var _super = _createSuper(Trivia);
 
   function Trivia(props) {
     var _this;
 
     _classCallCheck(this, Trivia);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Trivia).call(this, props));
+    _this = _super.call(this, props);
     _this.state = {
       index: -1,
       trivia: [],
       correct: 0,
       incorrect: 0
     };
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    _this.reset = _this.reset.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.reset = _this.reset.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -169,12 +177,12 @@ function (_React$Component) {
     value: function componentDidMount() {
       var self = this;
 
-      _axios.default.get('https://opentdb.com/api.php?amount=10').then(function (response) {
+      _axios["default"].get('https://opentdb.com/api.php?amount=10').then(function (response) {
         self.setState({
           trivia: response.data.results,
           index: 0
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         return alert(error);
       });
     }
@@ -211,49 +219,49 @@ function (_React$Component) {
       });
       var self = this;
 
-      _axios.default.get('https://opentdb.com/api.php?amount=10').then(function (response) {
+      _axios["default"].get('https://opentdb.com/api.php?amount=10').then(function (response) {
         self.setState({
           trivia: response.data.results,
           index: 0,
           correct: 0,
           incorrect: 0
         });
-      }).catch(function (error) {
+      })["catch"](function (error) {
         return alert(error);
       });
     }
   }, {
     key: "render",
     value: function render() {
-      var loading = this.state.index === -1 ? _react.default.createElement("div", null, "Loading...") : null;
+      var loading = this.state.index === -1 ? /*#__PURE__*/_react["default"].createElement("div", null, "Loading...") : null;
       var isStarted = this.state.index > -1 && this.state.index + 1 <= this.state.trivia.length;
-      var result = this.state.index >= this.state.trivia.length ? _react.default.createElement(Results, {
+      var result = this.state.index >= this.state.trivia.length ? /*#__PURE__*/_react["default"].createElement(Results, {
         correct: this.state.correct,
         incorrect: this.state.incorrect,
         reset: this.reset
       }) : null;
-      var button = isStarted ? _react.default.createElement(Question, {
+      var button = isStarted ? /*#__PURE__*/_react["default"].createElement(Question, {
         index: this.state.index,
         questions: this.state.trivia,
         handleClick: this.handleClick,
         correct: this.state.correct,
         incorrect: this.state.incorrect
       }) : null;
-      return _react.default.createElement("div", null, _react.default.createElement("div", {
+      return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("div", {
         className: "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
-      }, _react.default.createElement("h1", {
+      }, /*#__PURE__*/_react["default"].createElement("h1", {
         className: "display-4"
-      }, "Powered by ", _react.default.createElement("i", {
+      }, "Powered by ", /*#__PURE__*/_react["default"].createElement("i", {
         className: "fab fa-react"
       })), loading, button, result));
     }
   }]);
 
   return Trivia;
-}(_react.default.Component);
+}(_react["default"].Component);
 
 var _default = Trivia;
-exports.default = _default;
+exports["default"] = _default;
 
 },{"axios":4,"react":313}],2:[function(require,module,exports){
 "use strict";
@@ -266,9 +274,9 @@ var _Trivia = _interopRequireDefault(require("./components/Trivia"));
 
 require("@babel/polyfill");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-(0, _reactDom.render)(_react.default.createElement(_Trivia.default, null), document.getElementById('react-root'));
+(0, _reactDom.render)( /*#__PURE__*/_react["default"].createElement(_Trivia["default"], null), document.getElementById('react-root'));
 
 },{"./components/Trivia":1,"@babel/polyfill":3,"react":313,"react-dom":310}],3:[function(require,module,exports){
 (function (global){
@@ -7832,6 +7840,7 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],306:[function(require,module,exports){
+(function (process){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -7843,7 +7852,7 @@ process.umask = function() { return 0; };
 
 var printWarning = function() {};
 
-if ("production" !== 'production') {
+if (process.env.NODE_ENV !== 'production') {
   var ReactPropTypesSecret = require('./lib/ReactPropTypesSecret');
   var loggedTypeFailures = {};
 
@@ -7873,7 +7882,7 @@ if ("production" !== 'production') {
  * @private
  */
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  if ("production" !== 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     for (var typeSpecName in typeSpecs) {
       if (typeSpecs.hasOwnProperty(typeSpecName)) {
         var error;
@@ -7924,7 +7933,8 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
 
 module.exports = checkPropTypes;
 
-},{"./lib/ReactPropTypesSecret":307}],307:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./lib/ReactPropTypesSecret":307,"_process":305}],307:[function(require,module,exports){
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -7939,6 +7949,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 },{}],308:[function(require,module,exports){
+(function (process){
 /** @license React v16.6.1
  * react-dom.development.js
  *
@@ -7952,7 +7963,7 @@ module.exports = ReactPropTypesSecret;
 
 
 
-if ("production" !== "production") {
+if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
@@ -27667,7 +27678,8 @@ module.exports = reactDom;
   })();
 }
 
-},{"object-assign":304,"prop-types/checkPropTypes":306,"react":313,"scheduler":319,"scheduler/tracing":320}],309:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"_process":305,"object-assign":304,"prop-types/checkPropTypes":306,"react":313,"scheduler":319,"scheduler/tracing":320}],309:[function(require,module,exports){
 /** @license React v16.6.1
  * react-dom.production.min.js
  *
@@ -27919,6 +27931,7 @@ Ka,La,Ca.injectEventPluginsByName,qa,Ra,function(a){za(a,Qa)},Ib,Jb,Jd,Ea]},unst
 var ei={default:bi},fi=ei&&bi||ei;module.exports=fi.default||fi;
 
 },{"object-assign":304,"react":313,"scheduler":319}],310:[function(require,module,exports){
+(function (process){
 'use strict';
 
 function checkDCE() {
@@ -27929,7 +27942,7 @@ function checkDCE() {
   ) {
     return;
   }
-  if ("production" !== 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     // This branch is unreachable because this function is only called
     // in production, but the condition is true only in development.
     // Therefore if the branch is still here, dead code elimination wasn't
@@ -27949,7 +27962,7 @@ function checkDCE() {
   }
 }
 
-if ("production" === 'production') {
+if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
@@ -27958,7 +27971,9 @@ if ("production" === 'production') {
   module.exports = require('./cjs/react-dom.development.js');
 }
 
-},{"./cjs/react-dom.development.js":308,"./cjs/react-dom.production.min.js":309}],311:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./cjs/react-dom.development.js":308,"./cjs/react-dom.production.min.js":309,"_process":305}],311:[function(require,module,exports){
+(function (process){
 /** @license React v16.6.1
  * react.development.js
  *
@@ -27972,7 +27987,7 @@ if ("production" === 'production') {
 
 
 
-if ("production" !== "production") {
+if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
@@ -29800,7 +29815,8 @@ module.exports = react;
   })();
 }
 
-},{"object-assign":304,"prop-types/checkPropTypes":306}],312:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"_process":305,"object-assign":304,"prop-types/checkPropTypes":306}],312:[function(require,module,exports){
 /** @license React v16.6.1
  * react.production.min.js
  *
@@ -29827,15 +29843,17 @@ if(null!=b){void 0!==b.ref&&(h=b.ref,f=K.current);void 0!==b.key&&(g=""+b.key);v
 __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED:{ReactCurrentOwner:K,assign:k}};X.unstable_ConcurrentMode=x;X.unstable_Profiler=u;var Y={default:X},Z=Y&&X||Y;module.exports=Z.default||Z;
 
 },{"object-assign":304}],313:[function(require,module,exports){
+(function (process){
 'use strict';
 
-if ("production" === 'production') {
+if (process.env.NODE_ENV === 'production') {
   module.exports = require('./cjs/react.production.min.js');
 } else {
   module.exports = require('./cjs/react.development.js');
 }
 
-},{"./cjs/react.development.js":311,"./cjs/react.production.min.js":312}],314:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./cjs/react.development.js":311,"./cjs/react.production.min.js":312,"_process":305}],314:[function(require,module,exports){
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -30565,6 +30583,7 @@ if ("production" === 'production') {
 );
 
 },{}],315:[function(require,module,exports){
+(function (process){
 /** @license React v16.6.1
  * scheduler-tracing.development.js
  *
@@ -30578,7 +30597,7 @@ if ("production" === 'production') {
 
 
 
-if ("production" !== "production") {
+if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
@@ -30986,7 +31005,8 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
   })();
 }
 
-},{}],316:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"_process":305}],316:[function(require,module,exports){
 /** @license React v16.6.1
  * scheduler-tracing.production.min.js
  *
@@ -30999,6 +31019,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 'use strict';Object.defineProperty(exports,"__esModule",{value:!0});var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unstable_clear=function(a){return a()};exports.unstable_getCurrent=function(){return null};exports.unstable_getThreadID=function(){return++b};exports.unstable_trace=function(a,d,c){return c()};exports.unstable_wrap=function(a){return a};exports.unstable_subscribe=function(){};exports.unstable_unsubscribe=function(){};
 
 },{}],317:[function(require,module,exports){
+(function (process){
 /** @license React v16.6.1
  * scheduler.development.js
  *
@@ -31012,7 +31033,7 @@ exports.unstable_unsubscribe = unstable_unsubscribe;
 
 
 
-if ("production" !== "production") {
+if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
@@ -31639,7 +31660,8 @@ exports.unstable_shouldYield = unstable_shouldYield;
   })();
 }
 
-},{}],318:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"_process":305}],318:[function(require,module,exports){
 /** @license React v16.6.1
  * scheduler.production.min.js
  *
@@ -31663,21 +31685,25 @@ b=c.previous;b.next=c.previous=a;a.next=c;a.previous=b}return a};exports.unstabl
 exports.unstable_shouldYield=function(){return!f&&(null!==d&&d.expirationTime<l||w())};
 
 },{}],319:[function(require,module,exports){
+(function (process){
 'use strict';
 
-if ("production" === 'production') {
+if (process.env.NODE_ENV === 'production') {
   module.exports = require('./cjs/scheduler.production.min.js');
 } else {
   module.exports = require('./cjs/scheduler.development.js');
 }
 
-},{"./cjs/scheduler.development.js":317,"./cjs/scheduler.production.min.js":318}],320:[function(require,module,exports){
+}).call(this,require('_process'))
+},{"./cjs/scheduler.development.js":317,"./cjs/scheduler.production.min.js":318,"_process":305}],320:[function(require,module,exports){
+(function (process){
 'use strict';
 
-if ("production" === 'production') {
+if (process.env.NODE_ENV === 'production') {
   module.exports = require('./cjs/scheduler-tracing.production.min.js');
 } else {
   module.exports = require('./cjs/scheduler-tracing.development.js');
 }
 
-},{"./cjs/scheduler-tracing.development.js":315,"./cjs/scheduler-tracing.production.min.js":316}]},{},[2]);
+}).call(this,require('_process'))
+},{"./cjs/scheduler-tracing.development.js":315,"./cjs/scheduler-tracing.production.min.js":316,"_process":305}]},{},[2]);
