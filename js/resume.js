@@ -286,7 +286,9 @@ CircleScene.prototype.render = function render() {
   
   $(window).resize(function () {
     var canvasWidth = $('#dialog').width();
-    scene.resizeCanvas(canvasWidth, 480);
+    if (scene) {
+      scene.resizeCanvas(canvasWidth, 480);
+    }
   });
 
 })(jQuery); // End of use strict
