@@ -1,32 +1,27 @@
 {
-  "_args": [
-    [
-      "@fortawesome/fontawesome-free@5.5.0",
-      "C:\\Git\\mmiller314.github.io"
-    ]
-  ],
-  "_from": "@fortawesome/fontawesome-free@5.5.0",
-  "_id": "@fortawesome/fontawesome-free@5.5.0",
+  "_from": "@fortawesome/fontawesome-free@5.14.0",
+  "_id": "@fortawesome/fontawesome-free@5.14.0",
   "_inBundle": false,
-  "_integrity": "sha512-p4lu0jfj5QN013ddArh99r3OXZ/fp9rbovs62LfaO70OMBsAXxtNd0lAq/97fitrscR0fqfd+/a5KNcp6Sh/0A==",
+  "_integrity": "sha512-OfdMsF+ZQgdKHP9jUbmDcRrP0eX90XXrsXIdyjLbkmSBzmMXPABB8eobUJtivaupucYaByz6WNe1PI1JuYm3qA==",
   "_location": "/@fortawesome/fontawesome-free",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "@fortawesome/fontawesome-free@5.5.0",
+    "raw": "@fortawesome/fontawesome-free@5.14.0",
     "name": "@fortawesome/fontawesome-free",
     "escapedName": "@fortawesome%2ffontawesome-free",
     "scope": "@fortawesome",
-    "rawSpec": "5.5.0",
+    "rawSpec": "5.14.0",
     "saveSpec": null,
-    "fetchSpec": "5.5.0"
+    "fetchSpec": "5.14.0"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.5.0.tgz",
-  "_spec": "5.5.0",
+  "_resolved": "https://registry.npmjs.org/@fortawesome/fontawesome-free/-/fontawesome-free-5.14.0.tgz",
+  "_shasum": "a371e91029ebf265015e64f81bfbf7d228c9681f",
+  "_spec": "@fortawesome/fontawesome-free@5.14.0",
   "_where": "C:\\Git\\mmiller314.github.io",
   "author": {
     "name": "Dave Gandy",
@@ -36,6 +31,7 @@
   "bugs": {
     "url": "http://github.com/FortAwesome/Font-Awesome/issues"
   },
+  "bundleDependencies": false,
   "contributors": [
     {
       "name": "Brian Talbot",
@@ -59,6 +55,7 @@
     }
   ],
   "dependencies": {},
+  "deprecated": false,
   "description": "The iconic font, CSS, and SVG framework",
   "engines": {
     "node": ">=6"
@@ -80,5 +77,5 @@
     "url": "git+https://github.com/FortAwesome/Font-Awesome.git"
   },
   "style": "css/fontawesome.css",
-  "version": "5.5.0"
+  "version": "5.14.0"
 }
