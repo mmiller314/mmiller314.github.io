@@ -14,7 +14,7 @@ const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
+//var buffer = require('vinyl-buffer');
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -73,7 +73,7 @@ function modules() {
     .transform('babelify', { presets: ['@babel/preset-env', '@babel/preset-react'] })
     .bundle()
     .pipe(source('app.js'))
-    .pipe(buffer())
+    //.pipe(buffer())
     .pipe(gulp.dest('./build'));
   return merge(bootstrap, fontAwesome, jquery, jqueryEasing, react);
 }
