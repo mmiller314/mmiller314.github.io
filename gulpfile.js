@@ -68,6 +68,7 @@ function modules() {
     ])
     .pipe(gulp.dest('./vendor/jquery'));
   // react
+  process.env.NODE_ENV = 'production';
   var react = browserify(['app/index.js'])
     .transform('babelify', { presets: ['@babel/preset-env', '@babel/preset-react'] })
     .bundle()
@@ -108,7 +109,8 @@ function js() {
   return gulp
     .src([
       './js/*.js',
-      '!./js/*.min.js'
+      '!./js/*.min.js',
+      './build/*.js'
     ])
     .pipe(uglify())
     .pipe(header(banner, {
