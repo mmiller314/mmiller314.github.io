@@ -2,7 +2,7 @@
 
 // Load plugins
 const autoprefixer = require("gulp-autoprefixer");
-const browsersync = require("browser-sync").create();
+//const browsersync = require("browser-sync").create();
 const cleanCSS = require("gulp-clean-css");
 const del = require("del");
 const gulp = require("gulp");
@@ -29,21 +29,21 @@ var banner = ['/*!\n',
 ].join('');
 
 // BrowserSync
-function browserSync(done) {
-  browsersync.init({
-    server: {
-      baseDir: "./"
-    },
-    port: 3000
-  });
-  done();
-}
+// function browserSync(done) {
+//   browsersync.init({
+//     server: {
+//       baseDir: "./"
+//     },
+//     port: 3000
+//   });
+//   done();
+// }
 
 // BrowserSync reload
-function browserSyncReload(done) {
-  browsersync.reload();
-  done();
-}
+// function browserSyncReload(done) {
+//   browsersync.reload();
+//   done();
+// }
 
 // Clean vendor
 function clean() {
@@ -100,8 +100,8 @@ function css() {
       suffix: ".min"
     }))
     .pipe(cleanCSS())
-    .pipe(gulp.dest("./css"))
-    .pipe(browsersync.stream());
+    .pipe(gulp.dest("./css"));
+    //.pipe(browsersync.stream());
 }
 
 // JS task
@@ -119,21 +119,21 @@ function js() {
     .pipe(rename({
       suffix: '.min'
     }))
-    .pipe(gulp.dest('./js'))
-    .pipe(browsersync.stream());
+    .pipe(gulp.dest('./js'));
+    //.pipe(browsersync.stream());
 }
 
 // Watch files
-function watchFiles() {
-  gulp.watch("./scss/**/*", css);
-  gulp.watch("./js/**/*", js);
-  gulp.watch("./**/*.html", browserSyncReload);
-}
+// function watchFiles() {
+//   gulp.watch("./scss/**/*", css);
+//   gulp.watch("./js/**/*", js);
+//   gulp.watch("./**/*.html", browserSyncReload);
+// }
 
 // Define complex tasks
 const vendor = gulp.series(clean, modules);
 const build = gulp.series(vendor, gulp.parallel(css, js));
-const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
+//const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 // Export tasks
 exports.css = css;
@@ -141,5 +141,5 @@ exports.js = js;
 exports.clean = clean;
 exports.vendor = vendor;
 exports.build = build;
-exports.watch = watch;
+//exports.watch = watch;
 exports.default = build;
