@@ -61,13 +61,31 @@ function shuffle(_ref) {
 }
 
 function Status(props) {
+  var incorrectHtml = '';
+
+  if (props.displayPreviousAnswer) {
+    incorrectHtml = '<div class="text-left">';
+
+    for (var i = 0; i < props.incorrectAnswers.length; i++) {
+      incorrectHtml += props.incorrectAnswers[i] + '<br/>';
+    }
+
+    incorrectHtml += '</div>';
+  }
+
+  var incorrectStatus = props.displayPreviousAnswer && incorrectHtml != '' ? /*#__PURE__*/_react["default"].createElement("p", {
+    className: "lead",
+    dangerouslySetInnerHTML: {
+      __html: incorrectHtml
+    }
+  }) : null;
   return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
   }, "Correct: ", props.correct), /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
   }, "Incorrect: ", props.incorrect), /*#__PURE__*/_react["default"].createElement("p", {
     className: "lead"
-  }, "(", props.index + 1, " of ", props.questions.length, ")"));
+  }, "(", props.index + 1, " of ", props.questions.length, ")"), incorrectStatus);
 }
 
 function DisplayQuestion(props) {
@@ -121,7 +139,9 @@ function Question(props) {
     index: props.index,
     questions: props.questions,
     correct: props.correct,
-    incorrect: props.incorrect
+    incorrect: props.incorrect,
+    incorrectAnswers: props.incorrectAnswers,
+    displayPreviousAnswer: props.displayPreviousAnswer
   }));
 }
 
@@ -165,7 +185,9 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
       index: -1,
       trivia: [],
       correct: 0,
-      incorrect: 0
+      incorrect: 0,
+      incorrectAnswers: [],
+      displayPreviousAnswer: false
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     _this.reset = _this.reset.bind(_assertThisInitialized(_this));
@@ -205,11 +227,21 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
           correct: this.state.correct + 1
         });
       } else {
+        var previousQuestion = this.state.trivia[index];
+        var incorrect = this.state.incorrectAnswers.concat(previousQuestion.question + ' ' + previousQuestion.correct_answer);
         this.setState({
           index: this.state.index + 1,
-          incorrect: this.state.incorrect + 1
+          incorrect: this.state.incorrect + 1,
+          incorrectAnswers: incorrect
         });
       }
+    }
+  }, {
+    key: "handleTitleClick",
+    value: function handleTitleClick() {
+      this.setState({
+        displayPreviousAnswer: !this.state.displayPreviousAnswer
+      });
     }
   }, {
     key: "reset",
@@ -224,7 +256,8 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
           trivia: response.data.results,
           index: 0,
           correct: 0,
-          incorrect: 0
+          incorrect: 0,
+          incorrectAnswers: []
         });
       })["catch"](function (error) {
         return alert(error);
@@ -233,6 +266,8 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var loading = this.state.index === -1 ? /*#__PURE__*/_react["default"].createElement("div", null, "Loading...") : null;
       var isStarted = this.state.index > -1 && this.state.index + 1 <= this.state.trivia.length;
       var result = this.state.index >= this.state.trivia.length ? /*#__PURE__*/_react["default"].createElement(Results, {
@@ -245,12 +280,17 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
         questions: this.state.trivia,
         handleClick: this.handleClick,
         correct: this.state.correct,
-        incorrect: this.state.incorrect
+        incorrect: this.state.incorrect,
+        incorrectAnswers: this.state.incorrectAnswers,
+        displayPreviousAnswer: this.state.displayPreviousAnswer
       }) : null;
       return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("div", {
         className: "pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center"
       }, /*#__PURE__*/_react["default"].createElement("h1", {
-        className: "display-4"
+        className: "display-4",
+        onClick: function onClick() {
+          return _this2.handleTitleClick();
+        }
       }, "Powered by ", /*#__PURE__*/_react["default"].createElement("i", {
         className: "fab fa-react"
       })), loading, button, result));

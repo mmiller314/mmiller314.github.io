@@ -49,6 +49,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#trivia">Trivia</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#qrcode">LinkedIn</a>
+          </li>
           <li class="nav-item easter-egg">
             <a class="nav-link js-scroll-trigger" href="#experiments">Experiments</a>
           </li>
@@ -256,6 +259,15 @@
       </div>
     </section>
 
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="qrcode">
+      <div class="my-auto">
+        <h2 class="mb-5">LinkedIn</h2>
+        <div id="qrroot"></div>
+      </div>
+    </section>
+
     <hr class="m-0 easter-egg">
 
     <section class="resume-section p-3 p-lg-5 d-flex flex-column easter-egg" id="experiments">
@@ -299,6 +311,10 @@
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- https://github.com/davidshimjs/qrcodejs -->
+    <script src="js/qrcode.min.js"></script>
+    <script type="text/javascript">new QRCode(document.getElementById('qrroot'), 'https://www.linkedin.com/in/mike-r-miller/');</script>
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>

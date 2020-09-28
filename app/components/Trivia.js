@@ -10,11 +10,22 @@ function shuffle ([...a]) {
 }
 
 function Status(props) {
+  let incorrectHtml = '';
+  if (props.displayPreviousAnswer) {
+    incorrectHtml = '<div class="text-left">';
+    for (let i = 0; i < props.incorrectAnswers.length; i++) {
+      incorrectHtml += props.incorrectAnswers[i] + '<br/>';
+    }
+    incorrectHtml += '</div>';
+  }
+  const incorrectStatus = props.displayPreviousAnswer && incorrectHtml != '' ? (<p className="lead" dangerouslySetInnerHTML={{__html: incorrectHtml}} />) : (null);
+
   return (
     <div>
       <p className="lead">Correct: {props.correct}</p>
       <p className="lead">Incorrect: {props.incorrect}</p>
       <p className="lead">({props.index + 1} of {props.questions.length})</p>
+      {incorrectStatus}
     </div>
   );
 }
@@ -45,7 +56,7 @@ function Question(props) {
     <div>
       <DisplayQuestion q={q} />
       <DisplayAnswers answers={q} index={props.index} handleClick={props.handleClick} />
-      <Status index={props.index} questions={props.questions} correct={props.correct} incorrect={props.incorrect} />
+      <Status index={props.index} questions={props.questions} correct={props.correct} incorrect={props.incorrect} incorrectAnswers={props.incorrectAnswers} displayPreviousAnswer={props.displayPreviousAnswer} />
     </div>
   );
 }
@@ -75,7 +86,7 @@ function Results(props) {
 class Trivia extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { index: -1, trivia: [], correct: 0, incorrect: 0 };
+    this.state = { index: -1, trivia: [], correct: 0, incorrect: 0, incorrectAnswers: [], displayPreviousAnswer: false };
     this.handleClick = this.handleClick.bind(this);
     this.reset = this.reset.bind(this);
   }
@@ -105,11 +116,20 @@ class Trivia extends React.Component {
         correct: this.state.correct + 1
       });
     } else {
+      const previousQuestion = this.state.trivia[index];
+      let incorrect = this.state.incorrectAnswers.concat(previousQuestion.question + ' ' + previousQuestion.correct_answer);
       this.setState({
         index: this.state.index + 1,
-        incorrect: this.state.incorrect + 1
+        incorrect: this.state.incorrect + 1,
+        incorrectAnswers: incorrect
       });
     }
+  }
+
+  handleTitleClick() {
+    this.setState({
+      displayPreviousAnswer: !this.state.displayPreviousAnswer
+    });
   }
 
   reset() {
@@ -120,7 +140,8 @@ class Trivia extends React.Component {
         trivia: response.data.results,
         index: 0,
         correct: 0,
-        incorrect: 0
+        incorrect: 0,
+        incorrectAnswers: []
       });
     }).catch((error) => alert(error));
   }
@@ -129,12 +150,12 @@ class Trivia extends React.Component {
     const loading = this.state.index === -1 ? (<div>Loading...</div>) : (null);
     const isStarted = this.state.index > -1 && (this.state.index + 1) <= this.state.trivia.length;
     const result = this.state.index >= this.state.trivia.length ? (<Results correct={this.state.correct} incorrect={this.state.incorrect} reset={this.reset} />) : (null);
-    const button = isStarted ? (<Question index={this.state.index} questions={this.state.trivia} handleClick={this.handleClick}  correct={this.state.correct} incorrect={this.state.incorrect} />) : (null);
+    const button = isStarted ? (<Question index={this.state.index} questions={this.state.trivia} handleClick={this.handleClick}  correct={this.state.correct} incorrect={this.state.incorrect} incorrectAnswers={this.state.incorrectAnswers} displayPreviousAnswer={this.state.displayPreviousAnswer} />) : (null);
 
     return (
       <div>
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-          <h1 className="display-4">Powered by <i className="fab fa-react"></i></h1>
+          <h1 className="display-4" onClick={() => this.handleTitleClick()}>Powered by <i className="fab fa-react"></i></h1>
           {loading}
           {button}
           {result}
