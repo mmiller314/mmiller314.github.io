@@ -13,8 +13,8 @@ function Status(props) {
   let incorrectHtml = '';
   if (props.displayPreviousAnswer) {
     incorrectHtml = '<div class="text-left">';
-    for (let i = 0; i < props.incorrectAnswers.length; i++) {
-      incorrectHtml += props.incorrectAnswers[i] + '<br/>';
+    for (let i = 0; i < props.answers.length; i++) {
+      incorrectHtml += props.answers[i] + '<br/>';
     }
     incorrectHtml += '</div>';
   }
@@ -56,7 +56,7 @@ function Question(props) {
     <div>
       <DisplayQuestion q={q} />
       <DisplayAnswers answers={q} index={props.index} handleClick={props.handleClick} />
-      <Status index={props.index} questions={props.questions} correct={props.correct} incorrect={props.incorrect} incorrectAnswers={props.incorrectAnswers} displayPreviousAnswer={props.displayPreviousAnswer} />
+      <Status index={props.index} questions={props.questions} correct={props.correct} incorrect={props.incorrect} answers={props.answers} displayPreviousAnswer={props.displayPreviousAnswer} />
     </div>
   );
 }
@@ -86,7 +86,7 @@ function Results(props) {
 class Trivia extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { index: -1, trivia: [], correct: 0, incorrect: 0, incorrectAnswers: [], displayPreviousAnswer: false };
+    this.state = { index: -1, trivia: [], correct: 0, incorrect: 0, answers: [], displayPreviousAnswer: true };
     this.handleClick = this.handleClick.bind(this);
     this.reset = this.reset.bind(this);
   }
@@ -110,18 +110,21 @@ class Trivia extends React.Component {
   }
 
   handleClick(index, answer) {
+    const previousQuestion = this.state.trivia[index];
+
     if (this.state.trivia[index].correct_answer == answer) {
+      let correct = this.state.answers.concat('<span class="text-success">' + previousQuestion.question + ' ' + previousQuestion.correct_answer + '</span>');
       this.setState({
         index: this.state.index + 1,
-        correct: this.state.correct + 1
+        correct: this.state.correct + 1,
+        answers: correct
       });
     } else {
-      const previousQuestion = this.state.trivia[index];
-      let incorrect = this.state.incorrectAnswers.concat(previousQuestion.question + ' ' + previousQuestion.correct_answer);
+      let incorrect = this.state.answers.concat('<span class="text-danger">' + previousQuestion.question + ' ' + previousQuestion.correct_answer + '</span>');
       this.setState({
         index: this.state.index + 1,
         incorrect: this.state.incorrect + 1,
-        incorrectAnswers: incorrect
+        answers: incorrect
       });
     }
   }
@@ -141,7 +144,7 @@ class Trivia extends React.Component {
         index: 0,
         correct: 0,
         incorrect: 0,
-        incorrectAnswers: []
+        answers: []
       });
     }).catch((error) => alert(error));
   }
@@ -150,7 +153,7 @@ class Trivia extends React.Component {
     const loading = this.state.index === -1 ? (<div>Loading...</div>) : (null);
     const isStarted = this.state.index > -1 && (this.state.index + 1) <= this.state.trivia.length;
     const result = this.state.index >= this.state.trivia.length ? (<Results correct={this.state.correct} incorrect={this.state.incorrect} reset={this.reset} />) : (null);
-    const button = isStarted ? (<Question index={this.state.index} questions={this.state.trivia} handleClick={this.handleClick}  correct={this.state.correct} incorrect={this.state.incorrect} incorrectAnswers={this.state.incorrectAnswers} displayPreviousAnswer={this.state.displayPreviousAnswer} />) : (null);
+    const button = isStarted ? (<Question index={this.state.index} questions={this.state.trivia} handleClick={this.handleClick}  correct={this.state.correct} incorrect={this.state.incorrect} answers={this.state.answers} displayPreviousAnswer={this.state.displayPreviousAnswer} />) : (null);
 
     return (
       <div>

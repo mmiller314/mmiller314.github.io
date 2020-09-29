@@ -66,8 +66,8 @@ function Status(props) {
   if (props.displayPreviousAnswer) {
     incorrectHtml = '<div class="text-left">';
 
-    for (var i = 0; i < props.incorrectAnswers.length; i++) {
-      incorrectHtml += props.incorrectAnswers[i] + '<br/>';
+    for (var i = 0; i < props.answers.length; i++) {
+      incorrectHtml += props.answers[i] + '<br/>';
     }
 
     incorrectHtml += '</div>';
@@ -140,7 +140,7 @@ function Question(props) {
     questions: props.questions,
     correct: props.correct,
     incorrect: props.incorrect,
-    incorrectAnswers: props.incorrectAnswers,
+    answers: props.answers,
     displayPreviousAnswer: props.displayPreviousAnswer
   }));
 }
@@ -186,8 +186,8 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
       trivia: [],
       correct: 0,
       incorrect: 0,
-      incorrectAnswers: [],
-      displayPreviousAnswer: false
+      answers: [],
+      displayPreviousAnswer: true
     };
     _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     _this.reset = _this.reset.bind(_assertThisInitialized(_this));
@@ -221,18 +221,21 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleClick",
     value: function handleClick(index, answer) {
+      var previousQuestion = this.state.trivia[index];
+
       if (this.state.trivia[index].correct_answer == answer) {
+        var correct = this.state.answers.concat('<span class="text-success">' + previousQuestion.question + ' ' + previousQuestion.correct_answer + '</span>');
         this.setState({
           index: this.state.index + 1,
-          correct: this.state.correct + 1
+          correct: this.state.correct + 1,
+          answers: correct
         });
       } else {
-        var previousQuestion = this.state.trivia[index];
-        var incorrect = this.state.incorrectAnswers.concat(previousQuestion.question + ' ' + previousQuestion.correct_answer);
+        var incorrect = this.state.answers.concat('<span class="text-danger">' + previousQuestion.question + ' ' + previousQuestion.correct_answer + '</span>');
         this.setState({
           index: this.state.index + 1,
           incorrect: this.state.incorrect + 1,
-          incorrectAnswers: incorrect
+          answers: incorrect
         });
       }
     }
@@ -257,7 +260,7 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
           index: 0,
           correct: 0,
           incorrect: 0,
-          incorrectAnswers: []
+          answers: []
         });
       })["catch"](function (error) {
         return alert(error);
@@ -281,7 +284,7 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
         handleClick: this.handleClick,
         correct: this.state.correct,
         incorrect: this.state.incorrect,
-        incorrectAnswers: this.state.incorrectAnswers,
+        answers: this.state.answers,
         displayPreviousAnswer: this.state.displayPreviousAnswer
       }) : null;
       return /*#__PURE__*/_react["default"].createElement("div", null, /*#__PURE__*/_react["default"].createElement("div", {
