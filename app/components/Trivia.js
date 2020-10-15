@@ -98,7 +98,7 @@ class Trivia extends React.Component {
         trivia: response.data.results,
         index: 0
       });
-    }).catch((error) => alert(error));
+    }).catch((error) => console.log(error));
   }
 
   componentWillMount() {
@@ -146,7 +146,7 @@ class Trivia extends React.Component {
         incorrect: 0,
         answers: []
       });
-    }).catch((error) => alert(error));
+    }).catch((error) => console.log('error', error));
   }
 
   render() {

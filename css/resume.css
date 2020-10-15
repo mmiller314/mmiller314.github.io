@@ -197,3 +197,119 @@ a {
 a:hover, a:focus, a:active {
   color: #012c4f;
 }
+
+.fa-html5 {
+  color: #e34f26;
+}
+
+.fa-react {
+  color: #00d8ff;
+}
+
+.fa-angular {
+  color: #dd1b16;
+}
+
+.fa-less {
+  color: #43759e;
+}
+
+.fa-sass {
+  color: #cf649a;
+}
+
+.fa-npm {
+  color: #ca3837;
+}
+
+.fa-firefox {
+  color: #e66000;
+}
+
+.fa-aws {
+  color: #ff9900;
+}
+
+.fa-git {
+  color: #333333;
+}
+
+.fa-internet-explorer {
+  color: #3277bc;
+}
+
+.fa-codepen {
+  color: #3d3d3d;
+}
+
+.fa-jsfiddle {
+  color: #4679a4;
+}
+
+.fa-stack-overflow {
+  color: #fe7a15;
+}
+
+.fa-js-square {
+  color: #f7df1e;
+}
+
+.fa-node {
+  color: #333333;
+}
+
+.fa-gulp {
+  color: #eb4a4b;
+}
+
+.fa-grunt {
+  color: #412d14;
+}
+
+.fa-bootstrap {
+  color: #563d7c;
+}
+
+.fa-salesforce {
+  color: #00a1e0;
+}
+
+.fa-atlassian {
+  color: #0052cc;
+}
+
+.fa-font-awesome {
+  color: #228ae6;
+}
+
+.fa-jira {
+  color: #2684ff;
+}
+
+.fa-php {
+  color: #6180b6;
+}
+
+.fa-node-js {
+  color: black;
+}
+
+.fa-css3-alt {
+  color: #1471b6;
+}
+
+.fa-java {
+  color: black;
+}
+
+.fa-microsoft {
+  color: black;
+}
+
+.fa-chrome {
+  color: black;
+}
+
+.fa-mailchimp {
+  color: black;
+}

@@ -205,7 +205,7 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
           index: 0
         });
       })["catch"](function (error) {
-        return alert(error);
+        return console.log(error);
       });
     }
   }, {
@@ -263,7 +263,7 @@ var Trivia = /*#__PURE__*/function (_React$Component) {
           answers: []
         });
       })["catch"](function (error) {
-        return alert(error);
+        return console.log('error', error);
       });
     }
   }, {
