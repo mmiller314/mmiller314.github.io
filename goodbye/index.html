@@ -5,8 +5,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@200;600&display=swap" rel="stylesheet">
 <style type="text/css">
 body {
-	background-color: #003087;
+	background-color: #424242; /*#003087;*/
 	overflow: none;
+	height: 100%;
+	width: 100%;
 }
 
 .container {
@@ -18,16 +20,18 @@ body {
 }
 
 .screenText {
-	font-size: 7em;
+	font-size: 7rem;
 	font-family: 'Anek Malayalam', sans-serif;
 	font-weight: 600;
-	display:none;
-	position:absolute;
-	margin:0;
-	padding:0;
-	left:50%;
-	transform: translate(-50%, 0%);
-	color:#ffffff
+	display: none;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	/*left: 50%;
+	transform: translate(-50%, 0%);*/
+	color: #ffffff;
+	width: 100%;
+	text-align: center;
 }
 </style>
 <script
@@ -36,22 +40,29 @@ body {
   crossorigin="anonymous"></script>
 </head>
 <body id="screen" class="container" style="position:relative">
-	<h2 id="t0" class="screenText">Hey There...</h2>
+	<h2 id="t0" class="screenText">Hello...</h2>
 	<h2 id="t1" class="screenText">How are you today?</h2>
 	<h2 id="t2" class="screenText">I have some news to tell you</h2>
-	<h2 id="t3" class="screenText" style="font-size:6em">I am moving on to a new opportunity &#129312;</h2>
-	<h3 id="t4" class="screenText" style="font-size:6em">It's been great to work with y'all &#128512;</h3>
+	<h2 id="t3" class="screenText">I've accepted another opportunity &#129312;</h2>
+	<h3 id="t4" class="screenText">It's been great to work with y'all &#128512;</h3>
 	<h3 id="t5" class="screenText">I will miss everyone &#128557;</h3>
-	<h3 id="t6" class="screenText">Goodbye my friends &#128557;</h3>
+	<h3 id="t6" class="screenText">Goodbye... &#128557;</h3>
 	<h3 id="t7" class="screenText">Goodbye &#128579;</h3>
 	<h3 id="t8" class="screenText">&#128512; &#128551; &#128555; &#128566;</h3>
+	<h3 id="t9" class="screenText">Schweppes Ginger Ale is pure gold</h3>
+	<div id="t10" class="screenText"><img src="https://assets.amuniversal.com/56f25b806c790134d06d005056a9545d" /></div>
+	<h3 id="t11" class="screenText">How long does this go on for!?</h3>
+	<h3 id="t12" class="screenText">Over and out &#127881;</h3>
 	<script type="text/javascript">
 		// this is trash; jQuery is so old
 		var index = 0;
+		var speed = '+=2px';
 		
 		var moveUp = function (selectorName, callback) {
 			var count = 0;	
 			var $t = $(selectorName);
+			
+			speed = selectorName == '#t10' ? '+=1px' : '+=2px';
 			
 			if ($t == null || $t == undefined) return;
 			
@@ -59,7 +70,7 @@ body {
 			$t.css('display', 'block');
 			
 			var interval = setInterval(function () {
-				$t.css('bottom', '+=1px');
+				$t.css('bottom', speed);
 				count++;
 				
 				if (count >= 550) {
@@ -69,7 +80,7 @@ body {
 					$t.fadeOut('slow', function () {
 						index++;
 						// seriously why just why? I should have just done $('h3') and iterated through those
-						if (index > 8) index = 0;
+						if (index > 12) index = 0;
 						callback('#t' + index, moveUp);
 					});
 				
